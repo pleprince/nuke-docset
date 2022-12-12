@@ -1,0 +1,38 @@
+var classDD_1_1Image_1_1ToBuffer =
+[
+    [ "Transpose", "classDD_1_1Image_1_1ToBuffer.html#a9a8e950c540fed48caf55a2193fd928c", [
+      [ "NONE", "classDD_1_1Image_1_1ToBuffer.html#a9a8e950c540fed48caf55a2193fd928ca50bdc5a9767d03b0d455f8fe1de07239", null ],
+      [ "YFLIP", "classDD_1_1Image_1_1ToBuffer.html#a9a8e950c540fed48caf55a2193fd928ca22a02fc2854c4cf98269b327ec29be5a", null ],
+      [ "XFLIP", "classDD_1_1Image_1_1ToBuffer.html#a9a8e950c540fed48caf55a2193fd928cacdb3ae3ba6162570d0ca1c18f7237982", null ],
+      [ "R180", "classDD_1_1Image_1_1ToBuffer.html#a9a8e950c540fed48caf55a2193fd928caa7e4bcca7fcc1b30b9effa22c485a6c7", null ],
+      [ "TRANSPOSE", "classDD_1_1Image_1_1ToBuffer.html#a9a8e950c540fed48caf55a2193fd928caff00961a24dd29428d73a9c4e629460f", null ],
+      [ "R270", "classDD_1_1Image_1_1ToBuffer.html#a9a8e950c540fed48caf55a2193fd928ca1ac3e962e13236aa9fe7f43667a9e496", null ],
+      [ "R90", "classDD_1_1Image_1_1ToBuffer.html#a9a8e950c540fed48caf55a2193fd928ca0f741572582cce1cc188946edde3e353", null ],
+      [ "TRANSPOSE1", "classDD_1_1Image_1_1ToBuffer.html#a9a8e950c540fed48caf55a2193fd928ca3c3074d590e0cd2695a019b73070e605", null ]
+    ] ],
+    [ "ToBuffer", "classDD_1_1Image_1_1ToBuffer.html#a29586216a3574ca86d4829d57f6288c2", null ],
+    [ "Class", "classDD_1_1Image_1_1ToBuffer.html#a703f96d0f7a7a8f60cfcb5a7a70e417e", null ],
+    [ "node_help", "classDD_1_1Image_1_1ToBuffer.html#ab45b1942c40e7c1b99bada8ef1cfc4ed", null ],
+    [ "getTransform", "classDD_1_1Image_1_1ToBuffer.html#a3dbc326f0ff2a42add5b851f6eb5ec40", null ],
+    [ "lut", "classDD_1_1Image_1_1ToBuffer.html#a3fee3b20d97f17f0fea1da1ad0a7ce09", null ],
+    [ "stride", "classDD_1_1Image_1_1ToBuffer.html#ab2ce613e660f5d6180dfbc0e6a79b362", null ],
+    [ "depth", "classDD_1_1Image_1_1ToBuffer.html#aab95dda0e42f05ba7fcd497cfec5eba5", null ],
+    [ "transpose", "classDD_1_1Image_1_1ToBuffer.html#a1a44356117e0cc485bd0bc31a3afdd22", null ],
+    [ "lut", "classDD_1_1Image_1_1ToBuffer.html#a4a424f189553cac6f55ccc8370c94058", null ],
+    [ "transpose", "classDD_1_1Image_1_1ToBuffer.html#a2456b9863c7e5339fc58118f23ef7cd9", null ],
+    [ "stride", "classDD_1_1Image_1_1ToBuffer.html#a7a4ab1193554a2fc416868074b596fd5", null ],
+    [ "depth", "classDD_1_1Image_1_1ToBuffer.html#a01e3e4ed8fab2616a6652c836d7913a8", null ],
+    [ "to_buffer", "classDD_1_1Image_1_1ToBuffer.html#a4b6e8a0328d1f5f9a9242386ade6732a", null ],
+    [ "to_buffer", "classDD_1_1Image_1_1ToBuffer.html#af644de32f3d6f7e1b1255229c6afa89d", null ],
+    [ "to_buffer", "classDD_1_1Image_1_1ToBuffer.html#a4b0333e37cad3f8b54859abce47f0b45", null ],
+    [ "to_buffer", "classDD_1_1Image_1_1ToBuffer.html#a3127aa2d498914d90abfae7692bd4d54", null ],
+    [ "to_buffer", "classDD_1_1Image_1_1ToBuffer.html#ad92abf99b90b63e54eb3497364978281", null ],
+    [ "to_buffer", "classDD_1_1Image_1_1ToBuffer.html#ac84156375dd75ee37fc27db7ebe1dc68", null ],
+    [ "to_buffer", "classDD_1_1Image_1_1ToBuffer.html#a8211452480b51e8a5fec1cb72c2149a2", null ],
+    [ "to_buffer", "classDD_1_1Image_1_1ToBuffer.html#a668e4bdffdd381de551171802d2470b5", null ],
+    [ "lut_", "classDD_1_1Image_1_1ToBuffer.html#af9a4cc88bf211f51bc6ca1403d268e5c", null ],
+    [ "stride_", "classDD_1_1Image_1_1ToBuffer.html#a83a422c35e7c2317903a598a35a37beb", null ],
+    [ "depth_", "classDD_1_1Image_1_1ToBuffer.html#ababae85758ef3efd1995b0d0bd2985f1", null ],
+    [ "tpose_", "classDD_1_1Image_1_1ToBuffer.html#a1fba2c4800163b6bcc30b506ddb3213f", null ],
+    [ "buffers", "classDD_1_1Image_1_1ToBuffer.html#a2e59e217e22db00e310d1c2fdc8fc547", null ]
+];

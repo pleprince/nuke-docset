@@ -1,0 +1,26 @@
+var classDD_1_1Image_1_1IopInfoOwner =
+[
+    [ "Info", "classDD_1_1Image_1_1IopInfoOwner.html#ae0ce06365d7451f38058674b751510a8", null ],
+    [ "info", "classDD_1_1Image_1_1IopInfoOwner.html#aba97986a70e8c13e49ce8a4eccea350f", null ],
+    [ "x", "classDD_1_1Image_1_1IopInfoOwner.html#af2877ce9f584780737392e330bddb792", null ],
+    [ "y", "classDD_1_1Image_1_1IopInfoOwner.html#af502ac7aca64c540a26f9d65be0fa95a", null ],
+    [ "r", "classDD_1_1Image_1_1IopInfoOwner.html#af3feb4a12b78c5d42d7cafb796556c85", null ],
+    [ "t", "classDD_1_1Image_1_1IopInfoOwner.html#a2de8a6b1e236fdb3fd9d2ff192b89ba5", null ],
+    [ "w", "classDD_1_1Image_1_1IopInfoOwner.html#a1af9fa2194a854495cc058dfa2c90bc1", null ],
+    [ "h", "classDD_1_1Image_1_1IopInfoOwner.html#af14642aae83af2d705cd1985204fd640", null ],
+    [ "is_constant", "classDD_1_1Image_1_1IopInfoOwner.html#ac4f8dadf934ded9f3810647165a3044a", null ],
+    [ "clampx", "classDD_1_1Image_1_1IopInfoOwner.html#aa5ab090bc5215273d3532e4c66cdb1ff", null ],
+    [ "clampy", "classDD_1_1Image_1_1IopInfoOwner.html#a4093441b929bb090a7f16faf61ef1f46", null ],
+    [ "format", "classDD_1_1Image_1_1IopInfoOwner.html#adfc4a90035aa19b7d8eeaeecca63dd53", null ],
+    [ "full_size_format", "classDD_1_1Image_1_1IopInfoOwner.html#a3f5bfd9ba45687924288ed488348be47", null ],
+    [ "ydirection", "classDD_1_1Image_1_1IopInfoOwner.html#a48660cd7475cf208e4741ee55c685f29", null ],
+    [ "black_outside", "classDD_1_1Image_1_1IopInfoOwner.html#aeb891a8b501e2a23ec241e12608bfdee", null ],
+    [ "channels", "classDD_1_1Image_1_1IopInfoOwner.html#a80458c3dedd81f00cef19cc579f3959a", null ],
+    [ "generalInfo", "classDD_1_1Image_1_1IopInfoOwner.html#a13e756a632d5dcd5f8e3e0307e453f62", null ],
+    [ "info2D", "classDD_1_1Image_1_1IopInfoOwner.html#a27a3c0a04dc976d749f9363b3d27976c", null ],
+    [ "first_frame", "classDD_1_1Image_1_1IopInfoOwner.html#a2098ce9da4c23f477fcaf6e13c67689f", null ],
+    [ "last_frame", "classDD_1_1Image_1_1IopInfoOwner.html#a59089435b0c2528ddc78b72b1c7878dd", null ],
+    [ "format", "classDD_1_1Image_1_1IopInfoOwner.html#a7eea1451e20ddb274b1eaf929de06afb", null ],
+    [ "full_size_format", "classDD_1_1Image_1_1IopInfoOwner.html#a22239db06a501f19f558f61bd16a5c98", null ],
+    [ "info_", "classDD_1_1Image_1_1IopInfoOwner.html#a977fa62e7a6f42a1dfcac711cde6a8b6", null ]
+];
