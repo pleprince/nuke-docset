@@ -1,8 +1,10 @@
 # nuke-docset
 
-## Use
+## Usage
 
 A command-line utility to create a dash/zeal docset for Nuke.
+
+![The mandatory screenshot !](nuke-docset-screenshot.jpg)
 
 ```
 generate.py -h
