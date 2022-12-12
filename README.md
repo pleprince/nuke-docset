@@ -30,9 +30,15 @@ typical usage:
 ```
 
 
+## External docs
+
+https://kapeli.com/docsets
+
+
 ## License
 
 This is released under the Unlicense. See LICENSE.md for details.
+
 
 ## Author
 
