@@ -6,6 +6,7 @@ import shutil
 import sqlite3
 from pathlib import Path
 from bs4 import BeautifulSoup
+from bs4.formatter import HTMLFormatter
 
 
 PLIST = """<?xml version="1.0" encoding="UTF-8"?>
@@ -106,27 +107,36 @@ def get_parent_by_type(elmt, htype):
     return it
 
 
-def memItemRightList(h2, category):
-    items = get_parent_by_type(h2, 'table').find_all("td", {"class": "memItemRight"})
-    name = None
-    url = None
-    for item in items:
-        if not item.a:
-            continue
-        if "el" not in item.a.get("class"):
-            continue
-        if "inherit" in item.parent.get("class"):
-            continue
-        name = item.a.string
-        url = item.a.get("href") or "#"
-        yield name, url
+def memItemRightList(h2, category, html):
+    table = get_parent_by_type(h2, "table")
+    items = [it for it in table.find_all("td")]
+    result = {}
+    for i, item in enumerate(items):
+        if item.a:
+            if "el" not in item.a.get("class", []):
+                continue
+            if "inherit" in item.parent.get("class", []):
+                continue
+            name = item.a.string
+            url = item.a.get("href")
+            result[name] = url
+        elif item.b and html:
+            left = item.parent.find("td", {"class": "memItemLeft"})
+            if not (left and left.a):
+                continue
+            if "anchor" in left.a.get("class"):
+                name = item.b.string
+                url = "%s#%s" % (html, left.a.get("id"))
+                result[name] = url
+    return result
 
 
-def write_entries_by_cat(data, name, category):
+def write_entries_by_cat(data, name, category, html=None):
     cur, h2, class_name = data
     if h2.a.get("name") == name:
-        for t_name, t_url in memItemRightList(h2, category):
+        for t_name, t_url in memItemRightList(h2, category, html).items():
             if t_name and t_url:
+                # print("  + t_name = %r  t_url = %r" % (t_name, t_url))
                 cur.execute(
                     "INSERT OR IGNORE INTO searchIndex(name, type, path) "
                     "VALUES ('{class_name}::{type_name}', '{category}', '{path}')".format(
@@ -136,7 +146,7 @@ def write_entries_by_cat(data, name, category):
                         category=category,
                     )
                 )
-            return True
+        return True
     return False
 
 
@@ -153,6 +163,7 @@ def write_class_entries(conn, html):
 
     html_data = html.read_text()
     soup = BeautifulSoup(html_data, "html.parser")
+    hn = html.name
 
     for h2 in soup.find_all("h2", {"class": "groupheader"}):
         # if h2.a:
@@ -162,27 +173,27 @@ def write_class_entries(conn, html):
 
         if not h2.a:
             continue
-        elif write_entries_by_cat(data, "typedef-members", "Type"):
+        elif write_entries_by_cat(data, "typedef-members", "Type", html=hn):
             continue
-        elif write_entries_by_cat(data, "pub-types", "Type"):
+        elif write_entries_by_cat(data, "pub-types", "Type", html=hn):
             continue
-        elif write_entries_by_cat(data, "pro-types", "Type"):
+        elif write_entries_by_cat(data, "pro-types", "Type", html=hn):
             continue
-        elif write_entries_by_cat(data, "pub-methods", "Method"):
+        elif write_entries_by_cat(data, "pub-methods", "Method", html=hn):
             continue
-        elif write_entries_by_cat(data, "pub-static-methods", "Function"):
+        elif write_entries_by_cat(data, "pub-static-methods", "Function", html=hn):
             continue
-        elif write_entries_by_cat(data, "pro-methods", "Method"):
+        elif write_entries_by_cat(data, "pro-methods", "Method", html=hn):
             continue
-        elif write_entries_by_cat(data, "pro-static-methods", "Function"):
+        elif write_entries_by_cat(data, "pro-static-methods", "Function", html=hn):
             continue
-        elif write_entries_by_cat(data, "pub-attribs", "Attribute"):
+        elif write_entries_by_cat(data, "pub-attribs", "Attribute", html=hn):
             continue
-        elif write_entries_by_cat(data, "pro-attribs", "Attribute"):
+        elif write_entries_by_cat(data, "pro-attribs", "Attribute", html=hn):
             continue
-        elif write_entries_by_cat(data, "pub-static-attribs", "Attribute"):
+        elif write_entries_by_cat(data, "pub-static-attribs", "Attribute", html=hn):
             continue
-        elif write_entries_by_cat(data, "pro-static-attribs", "Attribute"):
+        elif write_entries_by_cat(data, "pro-static-attribs", "Attribute", html=hn):
             continue
 
 
@@ -201,6 +212,8 @@ def write_header_entries(conn, html):
 
     html_data = html.read_text()
     soup = BeautifulSoup(html_data, "html.parser")
+    hn = html.name
+
     for h2 in soup.find_all("h2", {"class": "groupheader"}):
         # if h2.a:
         #     found(h2.a.get("name"))
@@ -209,15 +222,15 @@ def write_header_entries(conn, html):
 
         if not h2.a:
             continue
-        elif write_entries_by_cat(data, "define-members", "Macro"):
+        elif write_entries_by_cat(data, "define-members", "Macro", html=hn):
             continue
-        elif write_entries_by_cat(data, "enum-members", "Enum"):
+        elif write_entries_by_cat(data, "enum-members", "Enum", html=hn):
             continue
-        elif write_entries_by_cat(data, "func-members", "Function"):
+        elif write_entries_by_cat(data, "func-members", "Function", html=hn):
             continue
-        elif write_entries_by_cat(data, "typedef-members", "Type"):
+        elif write_entries_by_cat(data, "typedef-members", "Type", html=hn):
             continue
-        elif write_entries_by_cat(data, "var-members", "Variable"):
+        elif write_entries_by_cat(data, "var-members", "Variable", html=hn):
             continue
 
 
