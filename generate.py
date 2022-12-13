@@ -136,7 +136,6 @@ def write_entries_by_cat(data, name, category, html=None):
     if h2.a.get("name") == name:
         for t_name, t_url in memItemRightList(h2, category, html).items():
             if t_name and t_url:
-                # print("  + t_name = %r  t_url = %r" % (t_name, t_url))
                 cur.execute(
                     "INSERT OR IGNORE INTO searchIndex(name, type, path) "
                     "VALUES ('{class_name}::{type_name}', '{category}', '{path}')".format(
