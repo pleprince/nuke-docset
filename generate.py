@@ -1,5 +1,6 @@
 import argparse
 import re
+import sys
 from functools import partial
 import logging
 import shutil
@@ -46,6 +47,27 @@ def get_logger():
             "Log level: %r", logging.getLevelName(logger.getEffectiveLevel())
         )
     return logger
+
+
+class ProgressBar:
+    def __init__(self, vmax, width=100):
+        self.vmax = int(vmax)
+        self.width = int(width)
+        self.inc = 0
+        sys.stdout.write("\33[?25l")    # hide shell cursor
+
+    def increment(self):
+        self.inc = min(self.vmax, self.inc + 1)
+        ratio = float(self.inc) / float(self.vmax)
+        done = int(ratio * self.width)
+        remaining = self.width - done
+        percent = int(ratio * 100.0)
+        sys.stdout.write("\r[%s%s] %d%%" % ("=" * done, " " * remaining, percent))
+        sys.stdout.flush()
+        # new line when done
+        if self.inc == self.vmax:
+            sys.stdout.write("\33[?25h")    # show shell cursor
+            sys.stdout.write("\n")
 
 
 def mk_structure(name):
@@ -243,13 +265,16 @@ def write_db_entries(conn, html):
 
 def mk_database(db_path, doc_path):
     log = get_logger()
-    html_files = doc_path.glob("*.html")
+    html_files = [f for f in doc_path.glob("*.html")]
+    pbar = ProgressBar(len(html_files), width=55)
     conn = init_db(db_path)
     rex = re.compile("((classDD_\\w*)|(\\w*_8h))\\.html")
     for html in html_files:
         if not re.match(rex, html.name) or "-members" in html.name:
+            pbar.increment()
             continue
         write_db_entries(conn, html)
+        pbar.increment()
 
     # print found header categories
     for f in sorted(found()):
