@@ -113,13 +113,14 @@ def memItemRightList(h2, category, html):
     result = {}
     for i, item in enumerate(items):
         if item.a:
-            if "el" not in item.a.get("class", []):
-                continue
-            if "inherit" in item.parent.get("class", []):
-                continue
-            name = item.a.string
-            url = item.a.get("href")
-            result[name] = url
+            for ia in item.find_all("a"):
+                if "el" not in ia.get("class", []):
+                    continue
+                if "inherit" in item.parent.get("class", []):
+                    continue
+                name = ia.string
+                url = ia.get("href")
+                result[name] = url
         elif item.b and html:
             left = item.parent.find("td", {"class": "memItemLeft"})
             if not (left and left.a):
