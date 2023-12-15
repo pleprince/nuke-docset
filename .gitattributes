@@ -1,1 +1,1 @@
-*.docset/* linguist-vendored
+*.docset/** linguist-vendored
